@@ -28,9 +28,8 @@ router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'^api/$', get_schema_view()),
-    path(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path(r'^api/auth/token/$', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path(r'^api/auth/token/refresh/$', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/$', get_schema_view()),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('', include(router.urls)),
 ]
