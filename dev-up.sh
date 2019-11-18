@@ -1,2 +1,1 @@
-cd eatthis
-python manage.py runserver 0.0.0.0:8000
+python whatsnextapi/manage.py runserver 0.0.0.0:8000
