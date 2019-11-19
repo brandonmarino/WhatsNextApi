@@ -17,18 +17,22 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib import admin
 from rest_framework import routers
-from whatsnextapi import views
+from whatsnextapi import views as whatsnextapi_views
 from rest_framework.schemas import get_schema_view
-from rest_framework_simplejwt import views as jwt_views
 from rest_framework_simplejwt import views as jwt_views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'users', whatsnextapi_views.UserViewSet)
+router.register(r'groups', whatsnextapi_views.GroupViewSet)
+router.register(r'productions', whatsnextapi_views.ProductionViewSet)
+router.register(r'movies', whatsnextapi_views.MovieViewSet)
+router.register(r'shows', whatsnextapi_views.ShowViewSet)
+router.register(r'seasons', whatsnextapi_views.SeasonViewSet)
+router.register(r'watchlists', whatsnextapi_views.WatchListViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/$', get_schema_view()),
+    path('api/', get_schema_view()),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('', include(router.urls)),
