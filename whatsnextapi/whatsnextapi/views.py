@@ -2,10 +2,6 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from whatsnextapi.serializers import UserSerializer, GroupSerializer, ProductionSerializer, MovieSerializer, ShowSerializer, SeasonSerializer, WatchListSerializer
-from django.views.generic import TemplateView
-
-class LoginViewPage(TemplateView):
-    template_name = 'login.html'
 
 class UserViewSet(viewsets.ModelViewSet):
     """

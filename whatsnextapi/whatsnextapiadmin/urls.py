@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib import admin
 from rest_framework import routers
 from whatsnextapi import views as whatsnextapi_views
+from login import views as login_views
 from rest_framework.schemas import get_schema_view
 from rest_framework_simplejwt import views as jwt_views
 
@@ -33,7 +34,7 @@ router.register(r'watchlists', whatsnextapi_views.WatchListViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/rest/', include('rest_auth.urls')),
-    path('auth/login/',  whatsnextapi_views.LoginViewPage.as_view(), name='rest_login'),
+    path('auth/login/',  login_views.LoginViewPage.as_view(), name='rest_login'),
     path('auth/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', get_schema_view()),
