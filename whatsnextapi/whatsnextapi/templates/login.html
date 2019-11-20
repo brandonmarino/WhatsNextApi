@@ -1,0 +1,32 @@
+{% block extra_head_tags %}
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+{% endblock %}
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'eatthis/login.css' %}">
+
+{% load static %}
+<script type="text/javascript" src="{% static 'eatthis/login.js' %}"></script>
+
+<h3>Login</h3>
+
+<section class="input-field location-field col s6">
+    <input id="username" type="text" >
+    <label for="username">Username</label>
+</section>
+
+<section class="input-field location-field col s6">
+    <input id="password" type="password" >
+    <label for="password">Password</label>
+</section>
+
+<button 
+    onclick="login()"
+    class="btn">
+    Log In
+</button>

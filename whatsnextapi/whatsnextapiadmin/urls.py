@@ -32,8 +32,10 @@ router.register(r'watchlists', whatsnextapi_views.WatchListViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/rest/', include('rest_auth.urls')),
+    path('auth/login/',  whatsnextapi_views.LoginViewPage.as_view(), name='rest_login'),
+    path('auth/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', get_schema_view()),
-    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
 ]
